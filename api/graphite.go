@@ -1374,7 +1374,7 @@ func (s *Server) getMetaTagRecords(ctx *middleware.Context) {
 		return
 	}
 
-	if s.MetaRecords == nil || !memory.TagSupport || !memory.MetaTagSupport {
+	if s.MetaRecords == nil || !memory.MetaTagSupport {
 		// meta tag support is disabled
 		response.Write(ctx, response.NewError(http.StatusNotImplemented, "Meta tag support is not enabled"))
 		return
@@ -1396,7 +1396,7 @@ func (s *Server) metaTagRecordUpsert(ctx *middleware.Context, upsertRequest mode
 		return
 	}
 
-	if s.MetaRecords == nil || !memory.TagSupport || !memory.MetaTagSupport {
+	if s.MetaRecords == nil || !memory.MetaTagSupport {
 		// meta tag support is disabled
 		response.Write(ctx, response.NewError(http.StatusNotImplemented, "Meta tag support is not enabled"))
 		return
@@ -1427,7 +1427,7 @@ func (s *Server) metaTagRecordSwap(ctx *middleware.Context, swapRequest models.M
 		}
 	}
 
-	if s.MetaRecords == nil || !memory.TagSupport || !memory.MetaTagSupport {
+	if s.MetaRecords == nil || !memory.MetaTagSupport {
 		// meta tag support is disabled
 		response.Write(ctx, response.NewError(http.StatusNotImplemented, "Meta tag support is not enabled"))
 		return
